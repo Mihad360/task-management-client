@@ -5,9 +5,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import router from './route/router';
+import Authprovider from './authprovider/Authprovider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Authprovider>
     <RouterProvider router={router}></RouterProvider>
+    </Authprovider>
   </React.StrictMode>,
 )

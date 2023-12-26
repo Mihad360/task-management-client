@@ -19,7 +19,7 @@ const Footer = () => {
                     <div>
                         <h1 className="text-2xl font-medium text-black pb-3">Socials & Other links</h1>
                         <div className="flex items-center gap-3">
-                        <a className="text-2xl" href=""><FaFacebook />
+                        <a className="text-2xl" href="https://www.facebook.com/miyad.ahammed.3"><FaFacebook />
                         </a>
                         <a className="text-2xl" href="https://github.com/Mihad360"><FaGithub />
                         </a>

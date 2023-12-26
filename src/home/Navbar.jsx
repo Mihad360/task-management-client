@@ -1,6 +1,16 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
+
+    const { user, logout } = useAuth()
+
+    const handlelogout = () => {
+        logout()
+            .then(res => {
+                console.log(res.data)
+            })
+    }
 
     const links = <div className="flex items-center gap-3 text-base">
         <li>
@@ -15,7 +25,7 @@ const Navbar = () => {
         </li>
         <li>
             <NavLink
-                to="/dashboard"
+                to="/dashboard/todolist"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "bg-sky-500 text-white font-medium" : ""
                 }
@@ -43,6 +53,11 @@ const Navbar = () => {
                 Register
             </NavLink>
         </li>
+        {/* <li>
+            {
+                user ? <button onClick={handlelogout} className="text-sky-600 font-bold text-xl">Log out</button> : ''
+            }
+        </li> */}
     </div>
 
     return (
@@ -65,7 +80,24 @@ const Navbar = () => {
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {links}
+
                     </ul>
+                </div>
+                <div>
+                    <li className="list-none pl-3">
+                        {
+                            user ? <button onClick={handlelogout} className="text-sky-600 font-bold text-xl">Logout</button> : ''
+                        }
+                    </li>
+                    <li className="list-none pl-10">
+                            {
+                                user && <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-5 lg:gap-2">
+
+                                    <h1 className="text-xl font-bold hidden md:block text-black">{user?.displayName}</h1>
+                                    <img className="w-12 rounded-full ml-12 md:ml-0" src={user?.photoURL} alt="" />
+                                </div>
+                            }
+                        </li>
                 </div>
                 {/* <div className="navbar-end">
                     <a className="btn">Button</a>

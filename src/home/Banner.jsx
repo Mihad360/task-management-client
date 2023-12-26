@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import { Link } from "react-router-dom";
+
 const Banner = () => {
     return (
         <div>
@@ -9,7 +11,7 @@ const Banner = () => {
                 </div>
                 <div>
                     <h1 className="text-xl font-medium text-black pb-3">Welcome to my task management site <br /> <span className="text-sky-500 font-bold text-2xl">TaskMasterHub</span></h1>
-                    <button className="btn bg-sky-500 text-lg px-5">Let's Explore</button>
+                    <Link to='/dashboard/todolist'><button className="btn bg-sky-500 text-lg px-5 text-white">Let's Explore</button></Link>
                 </div>
             </div>
         </div>
